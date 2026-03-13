@@ -14,7 +14,7 @@ The system SHALL fetch the list of recipes from `GET /recipes` using RTK Query w
 - **THEN** the system SHALL display an error message to the user
 
 ### Requirement: Display recipes as cards in a grid
-The system SHALL display all fetched recipes in a responsive grid layout using card components.
+The system SHALL display all fetched recipes that match the active filters in a responsive grid layout using card components. When no recipes match the active filters, the grid SHALL be replaced by an empty state message.
 
 #### Scenario: Grid layout on desktop
 - **WHEN** the viewport width is >= 1024px
@@ -27,6 +27,10 @@ The system SHALL display all fetched recipes in a responsive grid layout using c
 #### Scenario: Grid layout on mobile
 - **WHEN** the viewport width is < 640px
 - **THEN** the grid SHALL display 1 column of recipe cards
+
+#### Scenario: Empty filtered results
+- **WHEN** active filters produce zero matching recipes
+- **THEN** the grid SHALL be replaced by an empty state message
 
 ### Requirement: Recipe card displays key information
 Each recipe card SHALL display the recipe image, name, category, difficulty, and preparation time.
